@@ -18,10 +18,10 @@ app.include_router(task_router)
 def root():
     return {"message": "Task-Manager API is online."}
 
-if __name__ == "__main__":
-    uvicorn.run(
-        "app:app",
-        host="localhost",
-        port=8000,
-        reload=True 
-    )
+#if __name__ == "__main__":
+#    uvicorn.run(
+#        "app:app",
+#        host="localhost",
+#        port=8000,
+#        reload=True 
+#    )
