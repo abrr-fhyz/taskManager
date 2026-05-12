@@ -85,3 +85,6 @@ API_KEY = "sb_publishable_YMP-SwVbPGCIhmMS5zj3CQ__tiPIvf4"
 2. Start the frontend development server
 3. Open the frontend URL in your browser
 4. Enjoy! 3 sample tasks are already present as an example.
+
+## Usage of LLM Note
+Claude (Free) was used to generate boilerplate code for the front end. ChatGPT and Deepseek were used for troubleshooting a few errors and setting up this read me.
