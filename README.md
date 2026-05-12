@@ -3,6 +3,8 @@
 A simple full-stack task manager application built with React and Python.  
 Users can create, edit, delete, and mark tasks as completed. They can also reclassify completed tasks as pending once again. Tasks can be sorted/filtered by their completion status, that is, whether or not they are Pending or Completed. Users need to set a mandatory Task Title, and if they desire, can also set optional descriptions or due dates to their tasks. Tasks that are overdue will be marked as such.  
 
+**NOTE: Deployment on railway was attempted, but my free trial ran out.
+
 ## Tech Stack
 
 ### Frontend
