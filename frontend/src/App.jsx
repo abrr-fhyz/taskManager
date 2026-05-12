@@ -18,8 +18,8 @@ export default function App() {
 
   useEffect(() => { load(); }, []);
 
-  const handleAdd = async (title, desc) => {
-    const task = await createTask(title, desc);
+  const handleAdd = async (title, desc, dueDateTime) => {
+    const task = await createTask(title, desc, dueDateTime);
     setTasks((prev) => [task, ...prev]);
   };
 
@@ -33,8 +33,8 @@ export default function App() {
     setTasks((prev) => prev.filter((t) => t.task_id !== id));
   };
 
-  const handleEdit = async (id, title, desc) => {
-    const updated = await updateTask(id, title, desc);
+  const handleEdit = async (id, title, desc, dueDateTime) => {
+    const updated = await updateTask(id, title, desc, dueDateTime);
     setTasks((prev) => prev.map((t) => (t.task_id === id ? updated : t)));
   };
 

@@ -10,18 +10,18 @@ const handle = async (res) => {
 
 export const getTasks = () => fetch(BASE).then(handle);
 
-export const createTask = (task_title, task_desc) =>
+export const createTask = (task_title, task_desc, due_at) =>
   fetch(BASE, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ task_title, task_desc }),
+    body: JSON.stringify({ task_title, task_desc, due_at}),
   }).then(handle);
 
-export const updateTask = (id, task_title, task_desc) =>
+export const updateTask = (id, task_title, task_desc, due_at) =>
   fetch(`${BASE}/${id}`, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ task_title, task_desc }),
+    body: JSON.stringify({ task_title, task_desc, due_at}),
   }).then(handle);
 
 export const toggleTask = (id) =>

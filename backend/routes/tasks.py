@@ -1,17 +1,20 @@
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
 from typing import Optional
-import Handler
+from datetime import datetime
+import model.Handler as Handler
 
 router = APIRouter(prefix="/api/tasks", tags=["tasks"])
 
 class TaskCreate(BaseModel):
     task_title: str
     task_desc: Optional[str] = None
+    due_at: Optional[datetime] = None
 
 class TaskUpdate(BaseModel):
     task_title: Optional[str] = None
     task_desc: Optional[str] = None
+    due_at: Optional[datetime] = None
 
 @router.get("")
 def get_all_tasks():
@@ -21,7 +24,7 @@ def get_all_tasks():
 def create_task(body: TaskCreate):
     if not body.task_title.strip():
         raise HTTPException(status_code=400, detail="Please Enter Title.")
-    task = Handler.createTask(body.task_title.strip(), body.task_desc)
+    task = Handler.createTask(body.task_title.strip(), body.task_desc, body.due_at)
     if not task:
         raise HTTPException(status_code=500, detail="Failed to create task.")
     return task
@@ -33,7 +36,7 @@ def update_task(task_id: str, body: TaskUpdate):
     existing = Handler.getTask(task_id)
     if not existing:
         raise HTTPException(status_code=404, detail="Task not found.")
-    task = Handler.updateTask(task_id, body.task_title, body.task_desc)
+    task = Handler.updateTask(task_id, body.task_title, body.task_desc, body.due_at)
     return task
 
 @router.patch("/{task_id}/toggle")

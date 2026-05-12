@@ -1,7 +1,7 @@
 # Task Manager App
 
 A simple full-stack task manager application built with React and Python.  
-Users can create, edit, delete, and mark tasks as completed.
+Users can create, edit, delete, and mark tasks as completed. They can also reclassify completed tasks as pending once again. Tasks can be sorted/filtered by their completion status, that is, whether or not they are Pending or Completed. Users need to set a mandatory Task Title, and if they desire, can also set optional descriptions or due dates to their tasks. Tasks that are overdue will be marked as such.  
 
 ## Tech Stack
 
@@ -13,6 +13,7 @@ Users can create, edit, delete, and mark tasks as completed.
 ### Backend
 - Python
 - FastAPI
+- PostgreSQL, Supabase
 
 ## Prerequisites
 The project assumes the following are already installed:
@@ -28,6 +29,10 @@ cd frontend
 npm install
 npm run dev
 ```
+
+If any error pops up, run:
+`npm install react react-dom vite @vitejs/plugin-react`
+and then `npm run dev` again.
 
 Frontend runs on:
 
@@ -60,8 +65,16 @@ create table public."Tasks" (
   task_title character varying not null default ''::character varying,
   task_status character varying not null default 'PENDING'::character varying,
   task_desc character varying null,
+  due_at timestamp with time zone null,
   constraint Tasks_pkey primary key (task_id)
 ) TABLESPACE pg_default;
+```
+
+However, as this is a demo, and it would be very tedious to build the supabase database again, I am sharing the client side public key and url here. Place this in the `.env` file present in the `.\backend\` directory. The key and url are not secret as they would generally be visible through developer tools anyway. This does not violate the safe design metric, as the code utilizes environment variables. This measure was taken for convenience.
+
+```
+URL = "https://cwtgkfsthjovxmxqiurn.supabase.co"
+API_KEY = "sb_publishable_YMP-SwVbPGCIhmMS5zj3CQ__tiPIvf4"
 ```
 
 ## Running the Application
@@ -69,3 +82,4 @@ create table public."Tasks" (
 1. Start the backend server
 2. Start the frontend development server
 3. Open the frontend URL in your browser
+4. Enjoy! 3 sample tasks are already present as an example.
