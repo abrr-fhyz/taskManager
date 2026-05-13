@@ -72,12 +72,7 @@ create table public."Tasks" (
 ) TABLESPACE pg_default;
 ```
 
-However, as this is a demo, and it would be very tedious to build the supabase database again, I am sharing the client side public key and url here. Place this in the `.env` file present in the `.\backend\` directory. The key and url are not secret as they would generally be visible through developer tools anyway. This does not violate the safe design metric, as the code utilizes environment variables. This measure was taken for convenience.
-
-```
-URL = "https://cwtgkfsthjovxmxqiurn.supabase.co"
-API_KEY = "sb_publishable_YMP-SwVbPGCIhmMS5zj3CQ__tiPIvf4"
-```
+However, as this is a demo, and it would be very tedious to build the supabase database again, I have shared the client side public key and url in the submission PDF. Place this in the `.env` file present in the `.\backend\` directory. The key and url are not secret as they would generally be visible through developer tools anyway. This does not violate the safe design metric, as the code utilizes environment variables. This measure was taken for convenience.
 
 ## Running the Application
 
